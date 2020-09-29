@@ -6,6 +6,7 @@ import OnBoarding from "./src/screens/Authentication/OnBoarding";
 import Welcome from "./src/screens/Authentication/Welcome";
 import LoadAssets from "./src/components/LoadAssets";
 import theme from "./src/components/Theme";
+import { Routes } from "./src/components/Navigation";
 
 const fonts = {
   "SFProDisplay-Bold": require("./assets/fonts/SFProDisplay-Black.ttf"),
@@ -14,7 +15,7 @@ const fonts = {
   "SFProDisplay-Medium": require("./assets/fonts/SFProDisplay-Medium.ttf"),
 };
 
-const AuthenticationStack = createStackNavigator();
+const AuthenticationStack = createStackNavigator<Routes>();
 
 const AuthenticationNavigator = () => {
   return (
