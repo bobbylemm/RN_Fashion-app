@@ -14,11 +14,12 @@ import Animated, {
 } from "react-native-reanimated";
 import { interpolateColor, useScrollHandler } from "react-native-redash";
 
+import { theme } from "../../../components";
+import { Routes, StackNavigationProps } from "../../../components/Navigation";
+
 import Slide, { SLIDE_HEIGHT } from "./Slide";
 import Subslide from "./Subslide";
 import Dot from "./Dot";
-import { theme } from "../../../components";
-import { Routes, StackNavigationProps } from "../../../components/Navigation";
 
 interface OnBoardingProps {
   picture: {
@@ -114,9 +115,11 @@ const slides = [
   },
 ];
 
+export const assets = slides.map((slide) => slide.picture.src);
+
 const OnBoarding = ({
   navigation,
-}: StackNavigationProps<Routes, "Onboarding">) => {
+}: StackNavigationProps<Routes, "OnBoarding">) => {
   const scroll = useRef<Animated.ScrollView>(null);
   // TODO: useScrollHandler
   const { scrollHandler, x } = useScrollHandler();
