@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import { StyleSheet, Image, Dimensions, StatusBar } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import theme, { Box } from "./Theme";
+import { Box, useTheme } from "./Theme";
 
 interface ContainerProps {
   children: ReactNode;
@@ -18,6 +18,7 @@ const height = width * aspectRatio;
 
 const Container = ({ children, footer }: ContainerProps) => {
   const insets = useSafeAreaInsets();
+  const theme = useTheme();
   return (
     <Box flex={1} backgroundColor="secondary">
       <StatusBar barStyle="light-content" />

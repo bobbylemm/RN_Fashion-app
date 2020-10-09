@@ -14,8 +14,8 @@ import Animated, {
 } from "react-native-reanimated";
 import { interpolateColor, useScrollHandler } from "react-native-redash";
 
-import { theme } from "../../../components";
 import { Routes, StackNavigationProps } from "../../../components/Navigation";
+import { useTheme } from "../../../components";
 
 import Slide, { SLIDE_HEIGHT } from "./Slide";
 import Subslide from "./Subslide";
@@ -30,6 +30,7 @@ interface OnBoardingProps {
 }
 
 const { width } = Dimensions.get("window");
+const theme = useTheme();
 
 const styles = StyleSheet.create({
   container: {
@@ -127,6 +128,8 @@ const OnBoarding = ({
     inputRange: slides.map((_, i) => i * width),
     outputRange: slides.map((slide) => slide.color),
   });
+
+  const theme = useTheme();
   return (
     <View style={styles.container}>
       <Animated.View style={[styles.sliders, { backgroundColor }]}>
