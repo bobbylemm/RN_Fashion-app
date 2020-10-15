@@ -3,11 +3,11 @@ import { Dimensions, Image, StyleSheet } from "react-native";
 
 import { Button } from "../../../components";
 import { Routes, StackNavigationProps } from "../../../components/Navigation";
-import theme, { Box, Text } from "../../../components/Theme";
+import { Box, Text, useTheme } from "../../../components/Theme";
 
 const styles = StyleSheet.create({});
 
-interface WelcomeProps { }
+interface WelcomeProps {}
 
 const { width } = Dimensions.get("window");
 
@@ -20,6 +20,7 @@ const picture = {
 export const assets = [picture.src];
 
 const Welcome = ({ navigation }: StackNavigationProps<Routes, "Welcome">) => {
+  const theme = useTheme();
   return (
     <Box flex={1} backgroundColor="white">
       <Box
@@ -66,11 +67,11 @@ const Welcome = ({ navigation }: StackNavigationProps<Routes, "Welcome">) => {
             label="Have an account? Login"
             onPress={() => navigation.navigate("Login")}
           />
-          <Button label="Join us, it's free" onPress={() => { }} />
+          <Button label="Join us, it's free" onPress={() => {}} />
           <Button
             variant="transparent"
             label="Forgot password?"
-            onPress={() => { }}
+            onPress={() => {}}
           />
         </Box>
       </Box>

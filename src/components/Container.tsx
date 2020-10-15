@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { StyleSheet, Image, Dimensions, StatusBar } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Box, useTheme } from "./Theme";
@@ -9,8 +10,6 @@ interface ContainerProps {
   footer: ReactNode;
 }
 
-const styles = StyleSheet.create({});
-
 export const assets = [require("./assets/patterns/pattern-1.png")];
 const { width } = Dimensions.get("window");
 const aspectRatio = 750 / 1125;
@@ -19,6 +18,7 @@ const height = width * aspectRatio;
 const Container = ({ children, footer }: ContainerProps) => {
   const insets = useSafeAreaInsets();
   const theme = useTheme();
+
   return (
     <Box flex={1} backgroundColor="secondary">
       <StatusBar barStyle="light-content" />
@@ -55,7 +55,7 @@ const Container = ({ children, footer }: ContainerProps) => {
           borderRadius="xl"
           backgroundColor="white"
         >
-          {children}
+          <KeyboardAwareScrollView>{children}</KeyboardAwareScrollView>
         </Box>
       </Box>
       <Box backgroundColor="secondary" paddingTop="m">

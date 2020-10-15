@@ -7,7 +7,7 @@ import {
   AuthenticationNavigator,
 } from "./src/screens/Authentication";
 import LoadAssets from "./src/components/LoadAssets";
-import theme from "./src/components/Theme";
+import { theme } from "./src/components/Theme";
 
 const assets = [...authenticationAssets];
 const fonts = {

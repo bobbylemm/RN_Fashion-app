@@ -2,13 +2,14 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
-import theme, { Box } from "../../../components/Theme";
+import { Box, useTheme } from "../../../components/Theme";
 
 const styles = StyleSheet.create({});
 
 interface SocialLoginProps {}
-
-const ICON_SIZE = theme.borderRadii.l * 2;
+interface SocialIconProps {
+  children: React.ReactNode;
+}
 
 const Google = () => {
   return (
@@ -61,6 +62,8 @@ const Apple = () => {
 };
 
 const SocialIcon = ({ children }: SocialIconProps) => {
+  const theme = useTheme();
+  const ICON_SIZE = theme.borderRadii.l * 2;
   return (
     <Box
       marginHorizontal="s"
