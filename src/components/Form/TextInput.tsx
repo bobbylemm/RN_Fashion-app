@@ -7,6 +7,7 @@ import {
 import { Feather as Icon } from "@expo/vector-icons";
 
 import { Box, useTheme } from "../Theme";
+import RoundedIcon from "../RoundedIcon";
 
 const styles = StyleSheet.create({});
 
@@ -46,21 +47,12 @@ const TextInput = forwardRef(
         </Box>
 
         {touched && (
-          <Box
-            height={SIZE}
-            width={SIZE}
-            borderRadius="m"
-            alignItems="center"
-            justifyContent="center"
+          <RoundedIcon
+            name={!error ? "check" : "x"}
+            color="white"
+            size={SIZE}
             backgroundColor={!error ? "primary" : "danger"}
-            style={{ borderRadius: SIZE / 2 }}
-          >
-            <Icon
-              name={!error ? "check" : "x"}
-              color="white"
-              style={{ textAlign: "center" }}
-            />
-          </Box>
+          />
         )}
       </Box>
     );

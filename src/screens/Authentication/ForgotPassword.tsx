@@ -39,7 +39,7 @@ const ForgotPassword = ({
     onSubmit: (_) => navigation.navigate("PasswordChanged"),
   });
   return (
-    <Container {...{ footer }}>
+    <Container {...{ footer }} pattern={1}>
       <Box padding="xl" justifyContent="center" flex={1}>
         <Text variant="title1" textAlign="center" marginBottom="m">
           Forgot Password?

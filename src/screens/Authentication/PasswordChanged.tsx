@@ -1,43 +1,42 @@
 import React from "react";
-import { Feather as Icon } from "@expo/vector-icons";
 
 import {
   Box,
   Button,
   ClosedButton,
   Container,
+  RoundedIcon,
   Text,
-  useTheme,
 } from "../../components";
 import { Routes, StackNavigationProps } from "../../components/Navigation";
 
 const PasswordChanged = ({
   navigation,
 }: StackNavigationProps<Routes, "PasswordChanged">) => {
-  const theme = useTheme();
-
   return (
     <Container
-      footer={<ClosedButton onPress={() => navigation.navigate("Login")} />}
-    >
-      <Box flex={1} justifyContent="center">
-        <Box
-          backgroundColor="primaryLight"
-          height={60}
-          width={60}
-          borderRadius="xl"
-          alignItems="center"
-          justifyContent="center"
-          alignSelf="center"
-          marginBottom="xl"
-        >
-          <Icon name="check" size={32} color={theme.colors.primary} />
+      pattern={1}
+      footer={
+        <Box paddingVertical="xl">
+          <ClosedButton onPress={() => navigation.navigate("Login")} />
         </Box>
+      }
+    >
+      <Box flex={1} justifyContent="center" paddingHorizontal="xl">
+        <Box flexDirection="row" justifyContent="center" marginBottom="xl">
+          <RoundedIcon
+            name="check"
+            color="primary"
+            size={60}
+            backgroundColor="primaryLight"
+          />
+        </Box>
+
         <Text variant="title1" textAlign="center" marginBottom="m">
-          Create account
+          Your password was successfully changed
         </Text>
         <Text variant="body" textAlign="center" marginBottom="l">
-          Let's us know what your name, email and your password
+          Close this window and login again
         </Text>
         <Box alignItems="center" marginTop="l">
           <Button
