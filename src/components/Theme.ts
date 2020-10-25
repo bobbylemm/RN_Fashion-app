@@ -16,6 +16,7 @@ export const theme = createTheme({
         "slide.grey": "#F4F0EF",
         darkGrey: "#8A8D90",
         danger: "#FF0058",
+        primaryLight: "#E7F9F7"
     },
     spacing: {
         s: 8,

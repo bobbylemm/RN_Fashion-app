@@ -1,18 +1,14 @@
 import React from "react";
-import { Dimensions, Image, StyleSheet } from "react-native";
+import { Dimensions, Image } from "react-native";
 
-import { Button } from "../../../components";
-import { Routes, StackNavigationProps } from "../../../components/Navigation";
-import { Box, Text, useTheme } from "../../../components/Theme";
-
-const styles = StyleSheet.create({});
-
-interface WelcomeProps {}
+import { Button } from "../../components";
+import { Routes, StackNavigationProps } from "../../components/Navigation";
+import { Box, Text, useTheme } from "../../components/Theme";
 
 const { width } = Dimensions.get("window");
 
 const picture = {
-  src: require("../../../../assets/5.png"),
+  src: require("../../../assets/5.png"),
   width: 3383,
   height: 5074,
 };
@@ -67,11 +63,11 @@ const Welcome = ({ navigation }: StackNavigationProps<Routes, "Welcome">) => {
             label="Have an account? Login"
             onPress={() => navigation.navigate("Login")}
           />
-          <Button label="Join us, it's free" onPress={() => {}} />
+          <Button label="Join us, it's free" onPress={() => true} />
           <Button
             variant="transparent"
             label="Forgot password?"
-            onPress={() => {}}
+            onPress={() => true}
           />
         </Box>
       </Box>

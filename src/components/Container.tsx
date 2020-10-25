@@ -55,7 +55,7 @@ const Container = ({ children, footer }: ContainerProps) => {
           borderRadius="xl"
           backgroundColor="white"
         >
-          <KeyboardAwareScrollView>{children}</KeyboardAwareScrollView>
+          {children}
         </Box>
       </Box>
       <Box backgroundColor="secondary" paddingTop="m">

@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { StyleSheet } from "react-native";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -8,12 +7,7 @@ import { Button, Container } from "../../components";
 import { TextInput, CheckBox } from "../../components/Form";
 import { Routes, StackNavigationProps } from "../../components/Navigation";
 
-import SocialLogin from "./components/SocialLogin";
 import Footer from "./components/Footer";
-
-const styles = StyleSheet.create({});
-
-interface SignUpProps {}
 
 const SignUpSchema = Yup.object().shape({
   password: Yup.string()
@@ -126,7 +120,10 @@ const SignUp = ({ navigation }: StackNavigationProps<Routes, "SignUp">) => {
               checked={values.remember}
               onChange={() => setFieldValue("remember", !values.remember)}
             />
-            <Button variant="transparent" onPress={() => {}}>
+            <Button
+              variant="transparent"
+              onPress={() => navigation.navigate("ForgotPassword")}
+            >
               <Text color="primary">forgot password?</Text>
             </Button>
           </Box>
