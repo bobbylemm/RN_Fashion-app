@@ -5,8 +5,8 @@ import { Box } from "../../../components";
 
 const styles = StyleSheet.create({});
 
-const OrderTractor = () => {
+const OutfitIdeas = () => {
   return <Box flex={1} backgroundColor="danger" />;
 };
 
-export default OrderTractor;
+export default OutfitIdeas;

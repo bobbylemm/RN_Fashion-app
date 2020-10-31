@@ -10,6 +10,7 @@ import {
 } from "./src/screens/Authentication";
 import LoadAssets from "./src/components/LoadAssets";
 import { theme } from "./src/components/Theme";
+import { AppRoutes } from "./src/components/Navigation";
 
 const assets = [...authenticationAssets];
 const fonts = {
@@ -19,12 +20,7 @@ const fonts = {
   "SFProDisplay-Medium": require("./assets/fonts/SFProDisplay-Medium.ttf"),
 };
 
-type AppStackRoutes = {
-  Authentication: undefined;
-  Home: undefined;
-};
-
-export const AppStack = createStackNavigator<AppStackRoutes>();
+export const AppStack = createStackNavigator<AppRoutes>();
 
 export default function App() {
   return (

@@ -15,6 +15,7 @@ export const assets = [
   require("./assets/patterns/pattern-2.png"),
   require("./assets/patterns/pattern-3.png"),
 ] as const;
+
 const { width } = Dimensions.get("window");
 const aspectRatio = 750 / 1125;
 const height = width * aspectRatio;
@@ -59,6 +60,8 @@ const Container = ({ children, footer, pattern }: ContainerProps) => {
           borderTopLeftRadius={0}
           borderRadius="xl"
           backgroundColor="white"
+          justifyContent="center"
+          padding="xl"
         >
           {children}
         </Box>
