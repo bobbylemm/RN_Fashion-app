@@ -65,6 +65,12 @@ export const theme = createTheme({
             fontSize: 15,
             color: "text",
         },
+        header: {
+            fontFamily: "SFProDisplay-Semibold",
+            fontSize: 12,
+            lineHeight: 24,
+            color: "secondary"
+        }
     },
 });
 

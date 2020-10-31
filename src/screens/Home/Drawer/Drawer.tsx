@@ -2,7 +2,7 @@ import React from "react";
 import { Dimensions, Image, StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { Box, Text } from "../../../components";
+import { Box, Header, Text, useTheme } from "../../../components";
 import RoundedIconButton from "../../../components/RoundedIconButton";
 
 import DrawerItem, { DrawerItemProps } from "./DrawerItem";
@@ -52,8 +52,12 @@ const items: DrawerItemProps[] = [
   },
 ];
 
+export const assets = [
+  require("../../../components/assets/patterns/pattern-1.png"),
+];
+
 const Drawer = () => {
-  // const insets = useSafeAreaInsets();
+  const theme = useTheme();
 
   return (
     <Box flex={1}>
@@ -66,32 +70,18 @@ const Drawer = () => {
           bottom={0}
           borderBottomRightRadius="xl"
           backgroundColor="secondary"
-          flexDirection="row"
-          justifyContent="space-between"
-          paddingHorizontal="l"
-          style={{ paddingTop: 40 }}
         >
-          <RoundedIconButton
-            onPress={() => true}
-            size={24}
-            name="x"
-            color="white"
-            backgroundColor="secondary"
-          />
-          <Text color="white">MY PROFILE</Text>
-          <RoundedIconButton
-            size={24}
-            onPress={() => true}
-            name="shopping-bag"
-            color="white"
-            backgroundColor="secondary"
+          <Header
+            left={{ icon: "x", onPress: () => true }}
+            right={{ icon: "shopping-bag", onPress: () => true }}
+            title="MY PROFILE"
           />
         </Box>
       </Box>
       <Box flex={0.8}>
         <Box flex={1} backgroundColor="secondary" />
         <Image
-          source={require("../../../components/assets/patterns/pattern-1.png")}
+          source={assets[0]}
           style={{
             bottom: 0,
             left: 0,
@@ -143,11 +133,12 @@ const Drawer = () => {
         overflow="hidden"
       >
         <Image
-          source={require("../../../components/assets/patterns/pattern-1.png")}
+          source={assets[0]}
           style={{
             ...StyleSheet.absoluteFillObject,
-            width: undefined,
+            width: DRAWER_WIDTH,
             height: undefined,
+            borderTopLeftRadius: theme.borderRadii.xl,
           }}
         />
       </Box>
