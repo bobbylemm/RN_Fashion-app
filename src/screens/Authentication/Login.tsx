@@ -1,18 +1,14 @@
 import React, { useRef } from "react";
-import { StyleSheet } from "react-native";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { BorderlessButton } from "react-native-gesture-handler";
 
 import { Box, Text } from "../../components/Theme";
 import { Button, Container } from "../../components";
-import SocialLogin from "./components/SocialLogin";
 import { TextInput, CheckBox } from "../../components/Form";
-import Footer from "./components/Footer";
 import { Routes, StackNavigationProps } from "../../components/Navigation";
 
-const styles = StyleSheet.create({});
-
-interface LoginProps {}
+import Footer from "./components/Footer";
 
 const LoginSchema = Yup.object().shape({
   password: Yup.string()
@@ -36,7 +32,7 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
   } = useFormik({
     validationSchema: LoginSchema,
     initialValues: { email: "", password: "", remember: false },
-    onSubmit: (values) => console.log(values),
+    onSubmit: (values) => navigation.navigate("Home"),
   });
 
   const footer = (
@@ -93,18 +89,20 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
             flexDirection="row"
             justifyContent="space-between"
             alignItems="center"
+            marginVertical="m"
           >
             <CheckBox
               label="Remember me"
               checked={values.remember}
               onChange={() => setFieldValue("remember", !values.remember)}
             />
-            <Button
-              variant="transparent"
+            <BorderlessButton
               onPress={() => navigation.navigate("ForgotPassword")}
             >
-              <Text color="primary">forgot password?</Text>
-            </Button>
+              <Text variant="button" color="primary">
+                Forgot password?
+              </Text>
+            </BorderlessButton>
           </Box>
           <Box alignItems="center" marginTop="l">
             <Button

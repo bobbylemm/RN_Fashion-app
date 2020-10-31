@@ -1,7 +1,9 @@
 import * as React from "react";
 import { ThemeProvider } from "@shopify/restyle";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { createStackNavigator } from "@react-navigation/stack";
 
+import { HomeNavigator } from "./src/screens/Home";
 import {
   assets as authenticationAssets,
   AuthenticationNavigator,
@@ -17,12 +19,25 @@ const fonts = {
   "SFProDisplay-Medium": require("./assets/fonts/SFProDisplay-Medium.ttf"),
 };
 
+type AppStackRoutes = {
+  Authentication: undefined;
+  Home: undefined;
+};
+
+export const AppStack = createStackNavigator<AppStackRoutes>();
+
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <LoadAssets {...{ fonts, assets }}>
         <SafeAreaProvider>
-          <AuthenticationNavigator />
+          <AppStack.Navigator headerMode="none">
+            <AppStack.Screen
+              name="Authentication"
+              component={AuthenticationNavigator}
+            />
+            <AppStack.Screen name="Home" component={HomeNavigator} />
+          </AppStack.Navigator>
         </SafeAreaProvider>
       </LoadAssets>
     </ThemeProvider>

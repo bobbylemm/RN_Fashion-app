@@ -41,7 +41,7 @@ const PasswordChanged = ({
         <Box alignItems="center" marginTop="l">
           <Button
             variant="primary"
-            label="Create your account"
+            label="Login into your account"
             onPress={() => navigation.navigate("Login")}
           />
         </Box>
