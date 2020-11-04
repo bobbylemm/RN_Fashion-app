@@ -1,3 +1,4 @@
+import { DrawerActions, useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Dimensions, Image, StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -58,6 +59,7 @@ export const assets = [
 
 const Drawer = () => {
   const theme = useTheme();
+  const navigation = useNavigation();
 
   return (
     <Box flex={1}>
@@ -72,9 +74,13 @@ const Drawer = () => {
           backgroundColor="secondary"
         >
           <Header
-            left={{ icon: "x", onPress: () => true }}
+            left={{
+              icon: "x",
+              onPress: () => navigation.dispatch(DrawerActions.closeDrawer()),
+            }}
             right={{ icon: "shopping-bag", onPress: () => true }}
             title="MY PROFILE"
+            dark
           />
         </Box>
       </Box>

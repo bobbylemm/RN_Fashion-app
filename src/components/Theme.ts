@@ -14,6 +14,7 @@ export const theme = createTheme({
         white: "white",
         grey: "rgba(12,13,52,0.05)",
         "slide.grey": "#F4F0EF",
+        lightGrey: "#FAFAFA",
         darkGrey: "#8A8D90",
         danger: "#FF0058",
         primaryLight: "#E7F9F7",
